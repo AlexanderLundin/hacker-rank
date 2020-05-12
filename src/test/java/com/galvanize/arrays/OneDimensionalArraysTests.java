@@ -2,6 +2,8 @@ package com.galvanize.arrays;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class OneDimensionalArraysTests {
 
     //OICE - An effective way to consume requirements
@@ -21,13 +23,11 @@ public class OneDimensionalArraysTests {
     @Test
     public void createArray_returnsArray() {
         //Setup
-        OneDimensionalArray array = new OneDimensionalArray();
-
-
+        int expected = 5;
         //Exercise
-
+        OneDimensionalArray array = new OneDimensionalArray(expected);
         //Assert
-        assertEquals(expected, actual);
+        assertEquals(expected, array.getSize());
         //Teardown
     }
 }
