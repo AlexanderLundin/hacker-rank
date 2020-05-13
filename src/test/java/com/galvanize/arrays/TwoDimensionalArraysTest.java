@@ -1,5 +1,8 @@
 package com.galvanize.arrays;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TwoDimensionalArraysTest {
@@ -30,4 +33,29 @@ class TwoDimensionalArraysTest {
     //  19
     //  Think of edge cases at boundary values, 0 and 1 are typical
 
+    int [][] array;
+
+    @BeforeEach
+    public void setup() {
+        //Setup
+        array = new int[][]{
+                {1, 1, 1, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0},
+                {1, 1, 1, 0, 0, 0},
+                {0, 0, 2, 4, 4, 0},
+                {0, 0, 0, 2, 0, 0},
+                {0, 0, 1, 2, 4, 0}
+        };
+    }
+
+    @Test
+    public void sumOfLargestHourGlass_returnsInt() {
+        //Setup
+        int expected = 19;
+        //Exercise
+        int actual = TwoDimensionalArrays.sumOfLargestHourGlass(array);
+        //Assert
+        assertEquals(expected, actual);
+        //Teardown
+    }
 }
