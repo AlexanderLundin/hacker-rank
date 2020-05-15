@@ -35,8 +35,8 @@ class TwoDimensionalArraysTest {
 
     int [][] array;
 
-    @BeforeEach
-    public void setup() {
+    @Test
+    public void sumOfLargestHourGlass_returnsInt() {
         //Setup
         array = new int[][]{
                 {1, 1, 1, 0, 0, 0},
@@ -46,11 +46,25 @@ class TwoDimensionalArraysTest {
                 {0, 0, 0, 2, 0, 0},
                 {0, 0, 1, 2, 4, 0}
         };
+        int expected = 19;
+        //Exercise
+        int actual = TwoDimensionalArrays.sumOfLargestHourGlass(array);
+        //Assert
+        assertEquals(expected, actual);
+        //Teardown
     }
 
     @Test
-    public void sumOfLargestHourGlass_returnsInt() {
+    public void sumOfLargestHourGlass__largestOnEdge_returnsInt() {
         //Setup
+        array = new int[][]{
+                {1, 1, 1, 0, 0, 0},
+                {0, 1, 0, 0, 0, 0},
+                {1, 1, 1, 0, 0, 0},
+                {0, 0, 0, 2, 4, 4},
+                {0, 0, 0, 0, 2, 0},
+                {0, 0, 0, 1, 2, 4}
+        };
         int expected = 19;
         //Exercise
         int actual = TwoDimensionalArrays.sumOfLargestHourGlass(array);
