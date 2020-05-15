@@ -1,5 +1,7 @@
 package com.galvanize.arrays;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SubArrayTest {
@@ -16,5 +18,15 @@ class SubArrayTest {
     //  List examples from problem
     //  Think of edge cases at boundary values, 0 and 1 are typical
 
-
+    @Test
+    public void countNegativeSubArrays_returnsInteger() {
+        //Setup
+        int expected = 9;
+        int [] array = {1, -2 ,4, -5, 1};
+        //Exercise
+        int actual = SubArray.countNegativeSubArrays(array);
+        //Assert
+        assertEquals(expected, actual);
+        //Teardown
+    }
 }
