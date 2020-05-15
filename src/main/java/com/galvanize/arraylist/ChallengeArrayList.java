@@ -98,11 +98,11 @@ class Solution {
             value = scan.nextInt();
             arrayList.add(value);
         }
-        Integer[][] queryArrays = ChallengeArrayList.toIntArrays(arrayList);
+        Integer[][] queryArrays = ChallengeArrayList.toQueryArrays(arrayList);
         Integer[] queryArray;
         int x;
         int y;
-        for (int i = 0; i < queryArrays.length ; i++) {
+        for (int i = 1; i < queryArrays.length ; i++) {
             queryArray = queryArrays[i];
             x = queryArray[0];
             y = queryArray[1];
