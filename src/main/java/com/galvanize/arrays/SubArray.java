@@ -1,5 +1,7 @@
 package com.galvanize.arrays;
 
+import java.util.Scanner;
+
 public class SubArray {
     public static int countNegativeSubArrays(int[] array) {
         int sum = 0;
@@ -14,15 +16,23 @@ public class SubArray {
                     count++;
                 }
             }
-
         }
         return count;
     }
 }
 
-//public class Solution {
-//
-//    public static void main(String[] args) {
-//        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
-//    }
-//}
+class Solution2 {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int value = 0;
+        int[] array = new int[n];
+        for (int i = 0; i < n ; i++) {
+            value = scan.nextInt();
+            array[i] = value;
+        }
+        int countOfNegativeSubArrays = SubArray.countNegativeSubArrays(array);
+        System.out.println(countOfNegativeSubArrays);
+    }
+}
