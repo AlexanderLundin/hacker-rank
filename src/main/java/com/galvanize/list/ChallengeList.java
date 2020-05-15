@@ -67,6 +67,8 @@ public class ChallengeList {
     }
 
     public static void delete (int index, ArrayList list){
-        list.remove(index);
+        if (index < list.size()){
+            list.remove(index);
+        }
     }
 }
