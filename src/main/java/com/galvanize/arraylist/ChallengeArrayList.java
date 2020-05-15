@@ -16,7 +16,8 @@ public class ChallengeArrayList {
         arrays[arrayCount] = new Integer[]{--n};
         arrayCount++;
         Integer array [];
-        for (i = 1; i < n ; i++) {
+        i++;
+        for (arrayCount = 1; arrayCount <= n ; arrayCount++) {
             d = (Integer) arrayList.get(i);
             length = d;
             array = new Integer [++length];
@@ -27,7 +28,6 @@ public class ChallengeArrayList {
                 i++;
             }
             arrays[arrayCount] = array;
-            arrayCount++;
         }
         return arrays;
     }

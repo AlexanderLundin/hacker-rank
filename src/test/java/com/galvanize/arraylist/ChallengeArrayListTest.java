@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -116,7 +117,7 @@ class ChallengeArrayListTest {
 
         Integer[][] actual = ChallengeArrayList.toArrays(arrayList);
         //Assert
-        assertEquals(arrays, actual);
+        assertArrayEquals(arrays, actual);
         //Teardown
     }
 }
