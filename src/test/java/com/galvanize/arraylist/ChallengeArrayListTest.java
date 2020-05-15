@@ -55,20 +55,34 @@ class ChallengeArrayListTest {
     Integer[] array3 = {4, 37, 34, 36, 52};
     Integer[] array4 = new Integer[]{0};
     Integer[] array5 = {3, 20, 22, 33};
-    Integer[][] arrays = {array0, array1, array2, array3, array4, array5};
+    Integer[][] twoDimensionalInts = {array0, array1, array2, array3, array4, array5};
 
-    int[] ints = {5, 5, 41, 77, 74, 22, 44, 1, 12, 4, 37, 34, 36, 52, 0, 3, 20, 22, 33};
-    ArrayList arrayList = new ArrayList<Integer>(ints.length);
+    int[] arrayInts = {5, 5, 41, 77, 74, 22, 44, 1, 12, 4, 37, 34, 36, 52, 0, 3, 20, 22, 33};
+    ArrayList arrayListInts = new ArrayList<Integer>(arrayInts.length);
 
+    Integer[] array6 = {5};
+    Integer[] array7 = {1, 3};
+    Integer[] array8 = {3, 4};
+    Integer[] array9 = {3, 1};
+    Integer[] array10 = {4, 3};
+    Integer[] array11 = {5, 5};
+    Integer[][] twoDimensionalQueries = {array6, array7, array8, array9, array10, array11};
+
+    int[] arrayQueries = {5, 1, 3, 3, 4, 3, 1, 4, 3, 5, 5};
+    ArrayList arrayListQueries = new ArrayList<Integer>(arrayQueries.length);
 
     @BeforeAll
     public void setup() {
         //Setup
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
-        for (int i : ints)
+        for (int i : arrayInts)
         {
-            arrayList.add(i);
+            arrayListInts.add(i);
+        }
+        for (int q : arrayQueries)
+        {
+            arrayListQueries.add(q);
         }
     }
 
@@ -78,6 +92,25 @@ class ChallengeArrayListTest {
         System.setErr(originalErr);
     }
 
+    @Test
+    public void toIntArrays_returnsArrays() {
+        //Setup
+        //Exercise
+        Integer[][] actual = ChallengeArrayList.toIntArrays(arrayListInts);
+        //Assert
+        assertArrayEquals(twoDimensionalInts, actual);
+        //Teardown
+    }
+
+    @Test
+    public void toQueryArrays_withQueries_returnsArrays() {
+        //Setup
+        //Exercise
+        Integer[][] actual = ChallengeArrayList.toQueryArrays(arrayListQueries);
+        //Assert
+        assertArrayEquals(twoDimensionalQueries, actual);
+        //Teardown
+    }
 
     @Test
     public void printValueAtXY_printsInt() {
@@ -109,22 +142,14 @@ class ChallengeArrayListTest {
         //Teardown
     }
 
-    @Test
-    public void toArrays_returnsArrays() {
-        //Setup
-        //Exercise
-        Integer[][] actual = ChallengeArrayList.toArrays(arrayList);
-        //Assert
-        assertArrayEquals(arrays, actual);
-        //Teardown
-    }
+
 
     @Test
     public void printValueAtXY_withArrays_printsValue() {
         //Setup
         String expected = "74";
         //Exercise
-        ChallengeArrayList.printValueAtXY(arrays, 1, 3);
+        ChallengeArrayList.printValueAtXY(twoDimensionalInts, 1, 3);
         //Assert
         assertThat(outContent.toString(), containsString(expected));
         //Teardown
@@ -135,9 +160,12 @@ class ChallengeArrayListTest {
         //Setup
         String expected = "ERROR!";
         //Exercise
-        ChallengeArrayList.printValueAtXY(arrays, 1, 7);
+        ChallengeArrayList.printValueAtXY(twoDimensionalInts, 1, 7);
         //Assert
         assertThat(outContent.toString(), containsString(expected));
         //Teardown
     }
+
+
+
 }

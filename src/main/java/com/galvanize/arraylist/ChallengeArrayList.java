@@ -1,12 +1,36 @@
 package com.galvanize.arraylist;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ChallengeArrayList {
-
-    public static Integer[][] toArrays(ArrayList arrayList){
+    
+    public static Integer[][] toQueryArrays(ArrayList arrayList){
+        int i = 0;
+        int arrayCount = 0;
+        Integer n = (int) arrayList.get(i);
+        int length;
+        int q;
+        int value;
+        Integer arrays [][] = new Integer [++n][];
+        arrays[arrayCount] = new Integer[]{--n};
+        arrayCount++;
+        Integer[] array;
+        i++;
+        for (arrayCount = 1; arrayCount <= n ; arrayCount++) {
+            array = new Integer[2];
+            q = (Integer) arrayList.get(i);
+            array[0] = q;
+            i++;
+            value = (Integer) arrayList.get(i);
+            array[1] = value;
+            i++;
+            arrays[arrayCount] = array;
+        }
+        return arrays;
+    }
+    
+    public static Integer[][] toIntArrays(ArrayList arrayList){
         int i = 0;
         int arrayCount = 0;
         Integer n = (int) arrayList.get(i);
@@ -61,6 +85,9 @@ class Solution {
                 arrayList.add(value);
             }
         }
+        Integer[][] numberArrays = ChallengeArrayList.toIntArrays(arrayList);
+        System.out.println(numberArrays);
+        arrayList = new ArrayList();
         // loop for queries
         n = scan.nextInt();
         arrayList.add(n);
@@ -68,10 +95,18 @@ class Solution {
         for (int i = 0; i < n ; i++) {
             q = scan.nextInt();
             arrayList.add(q);
-            for (int j = 0; j < d ; j++) {
-                value = scan.nextInt();
-                arrayList.add(value);
-            }
+            value = scan.nextInt();
+            arrayList.add(value);
+        }
+        Integer[][] queryArrays = ChallengeArrayList.toIntArrays(arrayList);
+        Integer[] queryArray;
+        int x;
+        int y;
+        for (int i = 0; i < queryArrays.length ; i++) {
+            queryArray = queryArrays[i];
+            x = queryArray[0];
+            y = queryArray[1];
+            ChallengeArrayList.printValueAtXY(numberArrays, x, y);
         }
 
     }
