@@ -32,7 +32,7 @@ public class ChallengeArrayList {
         return arrays;
     }
 
-    public static void getValueAtXY(Integer[][] arrays, int x, int y) {
+    public static void printValueAtXY(Integer[][] arrays, int x, int y) {
         Integer array[];
         array = arrays[x];
         if (array.length <= y){
